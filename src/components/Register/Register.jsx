@@ -14,30 +14,29 @@ const Register = () => {
         event.preventDefault();
 
         if(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
-
+            console.log('Everything is okay.');
         }
         else {
             setError('Your password must be Minimum eight characters, at least one letter and one number')
             return;
         }
         
-        
-        // if(email) {
-        //     createUserWithEmailAndPassword(auth, email, password)
-        //     .then((userCredential) => {
-        //         // Signed in 
-        //         const user = userCredential.user;
-        //         // ...
-        //     })
-        //     .catch((error) => {
-        //         const errorCode = error.code;
-        //         const errorMessage = error.message;
-        //         // ..
-        //     });
-        // }
-        // else {
-        //     setError('Email and Password Required');
-        // }
+        if(email) {
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+        }
+        else {
+            setError('Email and Password Required');
+        }
     };
     console.log(email, password);
     return (
